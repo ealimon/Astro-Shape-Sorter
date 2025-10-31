@@ -36,7 +36,7 @@ header {
 }
 
 #cosmo-shape {
-    font-size: 10em; /* Emoji size remains large */
+    font-size: 10em; 
     transition: transform 0.5s ease;
     pointer-events: none;
     user-select: none;
@@ -73,9 +73,9 @@ header {
     box-shadow: 0 4px 0 0 #000;
 }
 
-/* NEW RULE FOR THE TRIANGLE EMOJI */
-.shape-button:contains("🔺") {
-    font-size: 10em; /* Make triangle emoji larger */
+/* NEW: Dedicated class to force the triangle size up */
+.triangle-boost {
+    font-size: 7em !important; 
 }
 
 footer {
@@ -87,5 +87,3 @@ footer {
     border-top: 1px solid #eee;
     text-align: center;
 }
-
-
