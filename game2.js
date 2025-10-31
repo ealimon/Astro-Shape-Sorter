@@ -8,7 +8,7 @@ const SHAPE_NAMES = Object.keys(SHAPES);
 let targetShapeName = '';
 let score = 0;
 const SCORE_TO_WIN = 10;
-let lastShapeName = ''; // NEW: Tracks the previous shape
+let lastShapeName = ''; // Tracks the previous shape for non-repetition
 
 // --- DOM Elements ---
 const cosmoShapeElement = document.getElementById('cosmo-shape');
@@ -30,12 +30,18 @@ function getRandomChoices(correctShape) {
     return choicesArray;
 }
 
-/** Generates and sets up the buttons for the current round. */
+/** Generates and sets up the buttons for the current round. (UPDATED) */
 function generateButtons(choices) {
     choiceButtonsDiv.innerHTML = '';
     choices.forEach(shapeName => {
         const button = document.createElement('button');
         button.classList.add('shape-button');
+        
+        // NEW LOGIC: Check if the button is the triangle and apply the size boost class
+        if (shapeName === 'triangle') {
+            button.classList.add('triangle-boost'); 
+        }
+        
         button.textContent = SHAPES[shapeName];
         button.setAttribute('data-shape', shapeName);
         button.addEventListener('click', handleGuess);
@@ -64,6 +70,7 @@ function handleGuess(event) {
     } else {
         messageElement.textContent = `Try again. Cosmo needs the ${targetShapeName.toUpperCase()} shape.`;
 
+        // Visual feedback for wrong guess
         cosmoShapeElement.style.transform = 'rotate(-15deg)';
         setTimeout(() => {
             cosmoShapeElement.style.transform = 'rotate(0deg)';
@@ -81,12 +88,13 @@ function handleWin() {
     nextGameButton.textContent = "Continue to Game 3 >>";
     nextGameButton.style.cssText = "padding: 15px 30px; font-size: 2em; background-color: #ff9900; color: white; border: none; border-radius: 10px; cursor: pointer; box-shadow: 0 5px 0 0 #cc7a00;";
 
-    nextGameButton.onclick = () => window.location.href = 'game3.html';
+    // This links to the next local file (which is assumed to be Game 3 in the same repo)
+    nextGameButton.onclick = () => window.location.href = 'game3.html'; 
 
     choiceButtonsDiv.appendChild(nextGameButton);
 }
 
-/** Sets up a new round of the game. (UPDATED) */
+/** Sets up a new round of the game. (UPDATED Randomization) */
 function newRound() {
     let nextShapeName;
 
