@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #F0F8FF; /* Consistent nebula background */
+    background-color: #F0F8FF;
     color: #333;
     margin: 0;
     padding: 20px;
@@ -26,7 +26,7 @@ header {
 #message {
     font-size: 2.5em;
     font-weight: 800;
-    color: #4B0082; /* Deep purple instructions */
+    color: #4B0082;
     min-height: 50px;
 }
 
@@ -36,9 +36,9 @@ header {
 }
 
 #cosmo-shape {
-    font-size: 10em; /* Large, easy-to-see shape */
+    font-size: 10em; /* Emoji size remains large */
     transition: transform 0.5s ease;
-    pointer-events: none; /* Prevents confusion by making the target non-clickable */
+    pointer-events: none;
     user-select: none;
 }
 
@@ -53,10 +53,13 @@ header {
 .shape-button {
     width: 150px;
     height: 150px;
-    border-radius: 10%; /* Shapes are less rounded than planets */
+    border-radius: 10%;
     border: 8px solid #333;
-    font-size: 3em; /* Larger emoji text */
-    background-color: #f7f7f7; /* Neutral background */
+    
+    /* 🚀 INCREASED SIZE HERE for better visibility */
+    font-size: 5em; 
+    
+    background-color: #f7f7f7;
     color: #333;
     cursor: pointer;
     box-shadow: 0 8px 0 0 #000;
@@ -73,7 +76,7 @@ header {
 
 footer {
     width: 100%;
-    margin-top: auto; /* Pushes footer to the bottom */
+    margin-top: auto;
     padding: 20px;
     font-size: 0.9em;
     color: #666;
