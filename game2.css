@@ -1,0 +1,82 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #F0F8FF; /* Consistent nebula background */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+#score {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#message {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #4B0082; /* Deep purple instructions */
+    min-height: 50px;
+}
+
+#target-area {
+    margin: 50px 0;
+    padding: 30px;
+}
+
+#cosmo-shape {
+    font-size: 10em; /* Large, easy-to-see shape */
+    transition: transform 0.5s ease;
+    pointer-events: none; /* Prevents confusion by making the target non-clickable */
+    user-select: none;
+}
+
+#choice-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.shape-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 10%; /* Shapes are less rounded than planets */
+    border: 8px solid #333;
+    font-size: 3em; /* Larger emoji text */
+    background-color: #f7f7f7; /* Neutral background */
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 8px 0 0 #000;
+    transition: transform 0.1s, box-shadow 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shape-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 0 #000;
+}
+
+footer {
+    width: 100%;
+    margin-top: auto; /* Pushes footer to the bottom */
+    padding: 20px;
+    font-size: 0.9em;
+    color: #666;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
