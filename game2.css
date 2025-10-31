@@ -75,7 +75,7 @@ header {
 
 /* NEW RULE FOR THE TRIANGLE EMOJI */
 .shape-button:contains("🔺") {
-    font-size: 7em; /* Make triangle emoji larger */
+    font-size: 10em; /* Make triangle emoji larger */
 }
 
 footer {
@@ -87,4 +87,5 @@ footer {
     border-top: 1px solid #eee;
     text-align: center;
 }
+
 
