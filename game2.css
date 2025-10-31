@@ -56,8 +56,7 @@ header {
     border-radius: 10%;
     border: 8px solid #333;
     
-    /* 🚀 INCREASED SIZE HERE for better visibility */
-    font-size: 5em; 
+    font-size: 5em; /* Default emoji size for buttons */
     
     background-color: #f7f7f7;
     color: #333;
@@ -72,6 +71,11 @@ header {
 .shape-button:active {
     transform: translateY(4px);
     box-shadow: 0 4px 0 0 #000;
+}
+
+/* NEW RULE FOR THE TRIANGLE EMOJI */
+.shape-button:contains("🔺") {
+    font-size: 6em; /* Make triangle emoji larger */
 }
 
 footer {
