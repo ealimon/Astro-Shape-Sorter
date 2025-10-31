@@ -30,14 +30,14 @@ function getRandomChoices(correctShape) {
     return choicesArray;
 }
 
-/** Generates and sets up the buttons for the current round. (UPDATED) */
+/** Generates and sets up the buttons for the current round. */
 function generateButtons(choices) {
     choiceButtonsDiv.innerHTML = '';
     choices.forEach(shapeName => {
         const button = document.createElement('button');
         button.classList.add('shape-button');
         
-        // NEW LOGIC: Check if the button is the triangle and apply the size boost class
+        // Logic to apply the size boost class to the triangle
         if (shapeName === 'triangle') {
             button.classList.add('triangle-boost'); 
         }
@@ -70,7 +70,6 @@ function handleGuess(event) {
     } else {
         messageElement.textContent = `Try again. Cosmo needs the ${targetShapeName.toUpperCase()} shape.`;
 
-        // Visual feedback for wrong guess
         cosmoShapeElement.style.transform = 'rotate(-15deg)';
         setTimeout(() => {
             cosmoShapeElement.style.transform = 'rotate(0deg)';
@@ -79,7 +78,7 @@ function handleGuess(event) {
     }
 }
 
-/** Handles the winning condition for Game 2 and links to Game 3. */
+/** Handles the winning condition for Game 2 and links to Game 3. (UPDATED LINK) */
 function handleWin() {
     messageElement.textContent = "🎉 MISSION COMPLETE! Unlock Game 3: Planet Size-Up!";
 
@@ -88,33 +87,28 @@ function handleWin() {
     nextGameButton.textContent = "Continue to Game 3 >>";
     nextGameButton.style.cssText = "padding: 15px 30px; font-size: 2em; background-color: #ff9900; color: white; border: none; border-radius: 10px; cursor: pointer; box-shadow: 0 5px 0 0 #cc7a00;";
 
-    // This links to the next local file (which is assumed to be Game 3 in the same repo)
-    nextGameButton.onclick = () => window.location.href = 'game3.html'; 
+    // THIS IS THE CRITICAL CHANGE: Linking to the external URL for Game 3
+    nextGameButton.onclick = () => window.open('https://ealimon.github.io/Planet-Size-Up/', '_self'); 
 
     choiceButtonsDiv.appendChild(nextGameButton);
 }
 
-/** Sets up a new round of the game. (UPDATED Randomization) */
+/** Sets up a new round of the game. */
 function newRound() {
     let nextShapeName;
 
-    // 1. Pick a new random target shape, ensuring it's not the last one
     do {
         nextShapeName = SHAPE_NAMES[Math.floor(Math.random() * SHAPE_NAMES.length)];
     } while (nextShapeName === lastShapeName);
 
-    // 2. Update the tracking variables
     targetShapeName = nextShapeName;
     lastShapeName = nextShapeName;
 
-    // 3. Set the visual target
     cosmoShapeElement.style.transform = 'scale(1.1)';
     setTimeout(() => cosmoShapeElement.style.transform = 'scale(1.0)', 200);
 
-    // 4. Update the instructions
     messageElement.textContent = "Find the " + targetShapeName.toUpperCase() + "!";
 
-    // 5. Generate the new set of choice buttons
     const choices = getRandomChoices(targetShapeName);
     generateButtons(choices);
 }
